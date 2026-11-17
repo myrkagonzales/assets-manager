@@ -32,9 +32,40 @@ public class Program {
                 "Ford F150",
                 2015,
                 170000));
-    }
-    // Polymorphism
-    // an asset ref. can point to either a house obj or vehicle obj
-    ArrayList<Asset> assets = new ArrayList<>();
 
-}
+        // Polymorphism
+        // An asset reference can point to either a house or vehicle object
+
+        for (Asset asset : assets) {
+            System.out.println("\n--------------------");
+
+            System.out.println("Description: " + asset.getDescription());
+            System.out.println("Date Acquired: " + asset.getDateAcquired());
+            System.out.println("Original Cost: " + asset.getOriginalCost());
+
+            // call to get correct getValue method based on obj type
+            System.out.println("Current Value: " + asset.getValue());
+        }
+
+        for (Asset asset : assets) {
+            // determine actual object type at runtime
+            if (asset instanceof House) {
+                // downcast asset into house
+                House house = (House) asset;
+                System.out.println("House Address: " + house.getAddress());
+            }
+            else if (asset instanceof Vehicle) {
+                // downcast asset into vehicle
+                Vehicle vehicle = (Vehicle) asset;
+
+                System.out.println("Vehicle: " + vehicle.getYear()+ " " + vehicle.getMakeModel());
+            }
+            System.out.println("Description: " + asset.getDescription());
+            System.out.println("Current Value: $" + asset.getValue());
+
+        }
+
+        }
+
+    }
+
