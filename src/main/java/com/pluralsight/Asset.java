@@ -2,7 +2,7 @@ package com.pluralsight;
 
 import java.math.BigDecimal;
 
-public class Asset {
+public abstract class Asset {
 
     // Info that every asset has
     private String description;
@@ -42,7 +42,5 @@ public class Asset {
 
     // default asset value is its purchase price
     // child classes can override this calculation
-    public BigDecimal getValue() {
-        return originalCost;
-    }
+    public abstract BigDecimal getValue();
 }
